@@ -1,11 +1,11 @@
-# kamo
+# kamokamo
 
 a pure Python library for Rust-like Option, Result, and iterator idioms.
 Python 3.14+; no runtime dependencies. Option, Result, and lazy iterator
 combinators are available.
 
 ```python
-from kamo import Nothing, Option, Some, from_optional
+from kamokamo import Nothing, Option, Some, from_optional
 
 
 def half_even(value: int) -> Option[int]:
@@ -69,7 +69,7 @@ with names and callback semantics following [Rust's Option][rust].
 [rust]: https://doc.rust-lang.org/std/option/enum.Option.html
 
 ```python
-from kamo import Err, Nothing, Ok, Result, Some
+from kamokamo import Err, Nothing, Ok, Result, Some
 
 
 def positive(value: int) -> Result[int, str]:
@@ -126,7 +126,7 @@ existing Err, and Nothing into `Ok(Nothing)`. the two transpose operations are
 inverses, including when the payload is None.
 
 ```python
-from kamo import Err, Nothing, Ok, Some
+from kamokamo import Err, Nothing, Ok, Some
 
 assert Some(None).ok_or("missing") == Ok(None)
 assert Nothing.ok_or_else(lambda: "missing") == Err("missing")
@@ -137,7 +137,7 @@ assert Nothing.transpose() == Ok(Nothing)
 [rust-result]: https://doc.rust-lang.org/std/result/enum.Result.html
 
 ```python
-from kamo import Err, Iter, Ok, Result
+from kamokamo import Err, Iter, Ok, Result
 
 
 def parse(line: str) -> Result[int, str]:
@@ -210,7 +210,7 @@ match and leaves later items unread. its zero-based index starts at the current
 cursor on each call; no match gives Nothing.
 
 ```python
-from kamo import Iter, Some
+from kamokamo import Iter, Some
 
 values = Iter([1, 2, 3, 4])
 assert values.position(lambda value: value >= 2) == Some(1)
@@ -229,7 +229,7 @@ as errors, and the next section remains unread. the caller owns the stream.
 from io import StringIO
 
 from examples.configuration import read_section
-from kamo import Iter
+from kamokamo import Iter
 
 with StringIO("port=8080\nbroken\n\nnext=yes\n") as source:
     lines = Iter(source)
@@ -266,7 +266,7 @@ mutable reference wrapper. Some(None) yields None; Nothing ends the scan
 permanently and leaves later inputs unread. the initial state is not yielded.
 
 ```python
-from kamo import Iter, Some
+from kamokamo import Iter, Some
 
 assert Iter([1, 2, 3]).scan(
     0, lambda total, value: (total + value, Some(total + value))
@@ -291,7 +291,7 @@ resources.
 this small tokenizer reads an integer prefix while retaining its delimiter:
 
 ```python
-from kamo import Iter, Ok, Peekable, Result, Some
+from kamokamo import Iter, Ok, Peekable, Result, Some
 
 
 def integer(characters: Peekable[str]) -> Result[int, str]:
@@ -343,7 +343,7 @@ checks independent sequence oracles. coverage locates gaps; no threshold is enfo
 benchmarks and profiles use the tools directly. for example:
 
 ```sh
-mise run bench -- --fast -s 'from kamo import Some; x = Some(42)' 'x.map(str)'
+mise run bench -- --fast -s 'from kamokamo import Some; x = Some(42)' 'x.map(str)'
 mise run profile -- -m pytest
 ```
 
