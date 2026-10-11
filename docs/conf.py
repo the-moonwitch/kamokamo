@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 """render linked API documentation and check its examples with Sphinx."""
 
 from importlib.metadata import version as _version

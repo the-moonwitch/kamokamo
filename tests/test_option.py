@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from collections.abc import Iterator
 from copy import copy, deepcopy
 from dataclasses import FrozenInstanceError, replace

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 """read one blank-line-delimited section of key=value entries."""
 
 from kamokamo import Err, Iter, Nothing, Ok, Option, Result, Some

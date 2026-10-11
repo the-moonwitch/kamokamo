@@ -102,5 +102,46 @@ opcode samples and allocation peaks from elapsed time.
 mise run build
 ```
 
-the wheel contains the library and its `py.typed` marker. the source
-distribution also contains the documentation and `examples` package.
+the wheel contains the library, its `py.typed` marker, and the MPL-2.0
+license. the source distribution also contains the `examples` package.
+documentation and its separately licensed fonts stay in the repository
+and on Read the Docs.
+
+check the distributions' metadata and README rendering before publishing:
+
+```sh
+uvx twine check --strict dist/*
+```
+
+## publish a release
+
+publishing uses [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/)
+from `.github/workflows/release.yml`, without a stored PyPI API token.
+
+for the first release, create a GitHub environment named `pypi` and register
+a [pending publisher](https://pypi.org/manage/account/publishing/) in the
+maintainer's PyPI account with these fields:
+
+| field | value |
+| --- | --- |
+| PyPI project | `kamokamo` |
+| GitHub owner | `the-moonwitch` |
+| repository | `kamokamo` |
+| workflow filename | `release.yml` |
+| environment | `pypi` |
+
+the first upload creates the PyPI project. a pending publisher does not
+reserve the name.
+
+for each release, set the version in `pyproject.toml` with `uv version`,
+commit the change and lockfile, and wait for CI to pass. publish a GitHub
+release whose tag matches that version, such as `v0.1.0`. the workflow
+checks the tag, runs the existing checks and tests, builds and validates
+the distributions, and uploads them from a separate publishing job.
+
+after publication, verify installation from PyPI outside the checkout:
+
+```sh
+uv run --isolated --no-project --python 3.14 --with kamokamo==0.1.0 \
+    python -c 'import kamokamo; print(kamokamo.__version__)'
+```

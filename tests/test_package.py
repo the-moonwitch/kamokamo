@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from importlib.metadata import version
 from subprocess import run
 from sys import executable

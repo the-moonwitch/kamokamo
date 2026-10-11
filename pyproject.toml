@@ -1,26 +1,37 @@
 [project]
 name = "kamokamo"
 version = "0.1.0"
-description = "typed functional vocabulary for Python"
+description = "Rust-like Option, Result, and iterators for typed Python"
 readme = "README.md"
 requires-python = ">=3.14"
+license = "MPL-2.0"
+license-files = ["LICENSE"]
 authors = [{ name = "samhain", email = "samhain@moonwit.ch" }]
+keywords = ["functional-programming", "option", "result", "iterators", "rust"]
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Libraries :: Python Modules",
     "Typing :: Typed",
 ]
 dependencies = []
+
+[project.urls]
+Documentation = "https://kamokamo.readthedocs.io/en/latest/"
+Source = "https://github.com/the-moonwitch/kamokamo"
+Issues = "https://github.com/the-moonwitch/kamokamo/issues"
+Changelog = "https://github.com/the-moonwitch/kamokamo/releases"
 
 [build-system]
 requires = ["uv_build>=0.12.17,<0.13.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-source-include = ["examples/**", "docs/**"]
+source-include = ["examples/**"]
 
 [tool.ruff]
 target-version = "py314"

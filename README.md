@@ -1,6 +1,7 @@
 # kamokamo · 鴨かも
 
-<img src="docs/_static/kamokamo-logo.png" width="600"
+<img src="https://kamokamo.readthedocs.io/en/latest/_static/kamokamo-logo.png"
+     width="600"
      alt="two yellow ducks beside the blue and yellow 鴨かも wordmark">
 
 *maybe a value. definitely a duck.*
@@ -16,6 +17,9 @@ Python's duck typing and Maybe types.
 ```sh
 uv add 'kamokamo @ git+https://github.com/the-moonwitch/kamokamo.git'
 ```
+
+the first PyPI release is being prepared. after it lands, use
+`uv add kamokamo` or `pip install kamokamo`.
 
 ## a small example
 
@@ -44,5 +48,15 @@ assert Iter(range(6)).filter_map(half_even).collect() == [0, 1, 2]
 - [explanation](https://kamokamo.readthedocs.io/en/latest/explanation.html)
 
 for development, run `mise run setup`, `mise run check`, `mise run test`, and
-`mise run docs`. the [development guide](docs/development.md) covers the
-tools, builds, and performance measurements.
+`mise run docs`. the
+[development guide](https://kamokamo.readthedocs.io/en/latest/development.html)
+covers the tools, builds, and performance measurements.
+
+## license
+
+the library is licensed under the [Mozilla Public License 2.0][license].
+vendored documentation fonts retain their upstream licenses; see the
+[font credits][fonts].
+
+[license]: https://github.com/the-moonwitch/kamokamo/blob/codex/scaffold/LICENSE
+[fonts]: https://github.com/the-moonwitch/kamokamo/blob/codex/scaffold/docs/_static/fonts/README.txt

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 """typed functional vocabulary for Python."""
 
 from typing import TYPE_CHECKING

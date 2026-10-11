@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from collections.abc import Iterable, Iterator
 from typing import Never, assert_type
 

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 """immutable optional values, with Rust-style combinators."""
 
 from collections.abc import Callable, Iterable, Iterator

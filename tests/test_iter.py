@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 from collections.abc import Callable, Iterator
 from itertools import count
 from operator import length_hint

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MPL-2.0
+
 """lazy one-shot pipelines over Python's iterator machinery."""
 
 from collections.abc import Callable, Iterable, Iterator
