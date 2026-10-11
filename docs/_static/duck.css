@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "xkcd Script";
+    src: url("fonts/xkcd-script.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Kamokamo Japanese";
+    src: url("fonts/kamokamo-yusei-magic.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+304B, U+3082, U+9D28;
+}
+
+#kamokamo > h1,
+#maybe-a-value-definitely-a-duck > h2 {
+    text-align: center;
+}
+
+div.body img.kamokamo-logo {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+}
+
+div.sphinxsidebar img.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 875px) {
+    div.sphinxsidebar h3,
+    div.sphinxsidebar h4,
+    div.sphinxsidebar p,
+    div.sphinxsidebar h3 a {
+        color: #3e4349;
+    }
+}
